@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesgeet" href="../css/sample.css"/>
+    <link rel="stylesheet" href="css/sample.css"/>
     <title>CSS 객체 선택 실습</title></head>
   <body>
     <header>
@@ -20,8 +20,8 @@
       <form id="formId">
         <div id="div1" class="class1">
           <label id="id11" class="class2" for="id12">이름</label>
-          <%String sName=requst.getParameter("sName");
-          out.println("<input id="12" class="class3" type="text" name="sName" size="20" maxlength="50" value=""+sName+""/>");%></div>
+          <%String sName=request.getParameter("sName");
+          out.println("<input id='id12' class='class3' type='text' name='sName' size='20' maxlength='50' value='"+sName+"'/>");%></div>
         <div id="div2" class="class1">
           <label id="id21" class="class2" for="id22">학번</label>
           <%=request.getParameter("sNumber")%></div>
