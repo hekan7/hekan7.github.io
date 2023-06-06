@@ -15,7 +15,7 @@
           <h4>취미:</h4>
           <% String[] uHobby=request.getParameterValues("hobby");%>
           <h4>
-            <%if(uHobby==null) {out.prinln("입력내용없음");}
+            <%if(uHobby==null) {out.println("입력내용없음");}
             else { for(int i=0;i<uHobby.length;i++) { out.println(uHobby[i]); }
             }%>
           </h4></section>
