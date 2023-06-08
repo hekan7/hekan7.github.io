@@ -59,6 +59,35 @@ body {
   font-size:15px;
 }
 
+#project {
+  width: 75%;
+  height: 100%;
+  float: left;
+  padding-left: 130px;
+  padding-top: 150px;
+}
+
+#project .pt{
+  font-size:30px;
+}
+
+#future {
+  width: 75%;
+  height: 100%;
+  float: left;
+  padding-left: 130px;
+  padding-top: 150px;
+  line-height: 50px;
+}
+
+#future .ft{
+  font-size:30px;
+}
+
+#future .ft1{
+  font-size:15px;
+}
+
 #contact {
   font-size: 15px;
   opacity: 0.5;
