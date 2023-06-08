@@ -31,11 +31,40 @@ body {
   font-size: 20px;
 }
 
+#major {
+  width: 75%;
+  height: 100%;
+  float: left;
+  padding-left: 130px;
+  padding-top: 150px;
+}
+
+#major2 {
+  width: 75%;
+  height: 100%;
+  float: left;
+  padding-left: 0px;
+  padding-top: 0px;
+}
+
+#major .mt{
+  font-size:30px;
+}
+
+#major2 .mt{
+  font-size:30px;
+}
+
+#major .mt1 {
+  font-size:15px;
+}
+
 #contact {
   font-size: 15px;
   opacity: 0.5;
   font-style: italic;
 }
+
 footer {
   font-size:10px;
   opacity: 0.8;
