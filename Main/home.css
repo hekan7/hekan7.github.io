@@ -41,7 +41,7 @@ body {
 #menu {
   width: 25%;
   height: 100%;
-  float: left;
+  float: right;
   color: black;
   padding-top: 17%;
   box-shadow: 0 1px 3px gray;
@@ -50,12 +50,18 @@ body {
   height: 100vh;
   line-height: 50px;
   text-align: center;
+  position: fixed;
+  left: 75%;
 }
 
 #menu h3:hover {
   font-size: 1.0em;
   opacity: 1;
   text-shadow: 0.7px 0.7px 0.7px #000;
+}
+
+#section1 .text{
+  font-size:30px;
 }
 
 /*for mobile*/
