@@ -36,7 +36,11 @@ body {
   opacity: 0.5;
   font-style: italic;
 }
-
+footer {
+  font-size:10px;
+  opacity: 0.8;
+  font-style:bold;
+}
 
 #menu {
   width: 25%;
