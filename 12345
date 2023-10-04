@@ -1,0 +1,177 @@
+package bean.user;
+
+public class homework1 {
+	private int num1, num2;
+	private int startNum;
+	private int endNum;
+	private int max, min;
+	
+	public void setStartNum(int startNum) { this.startNum=startNum; }
+	public int getStartNum() { return startNum; }
+	public void setEndNum(int endNum) { this.endNum=endNum; }
+	public int getEndNum() { return endNum; }
+	public int getNum1() {
+		num1=(int)(Math.random()*(endNum-startNum))+startNum;
+		return num1;
+	}
+	public int getNum2() {
+		num2=(int)(Math.random()*(endNum-startNum))+startNum;
+		return num2;
+	}
+	public int getmax() {
+		if(num1>num2) {
+			max=num1;
+		} else if (num2>num1) {
+			max=num2;
+		}
+		return max;
+	}
+	public int getmin() {
+		if(max==num2) {
+			min=num1;
+		} else if (max==num1) {
+			min=num2;
+		}
+		return min;
+	}
+}
+
+--------
+package bean.user;
+
+public class homework2 {
+	private int sum;
+	private int inputNum;
+	
+	public void setInputNum(int inputNum) { this.inputNum=inputNum; }
+	public int getInputNum() { return inputNum; }
+	public int getsum() {
+		int i=1, sum=0;
+		while(i<=inputNum) {
+			sum += i++;
+		}
+		
+		return sum;
+	}
+}
+
+---------
+package bean.user;
+
+public class homework2 {
+	private int sum;
+	private int inputNum;
+	
+	public void setInputNum(int inputNum) { this.inputNum=inputNum; }
+	public int getInputNum() { return inputNum; }
+	public int getsum() {
+		int i=1, sum=0;
+		while(i<=inputNum) {
+			sum += i++;
+		}
+		
+		return sum;
+	}
+}
+
+---------
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>입력 2개 -> 난수 만들기</title></head>
+<body>
+<form action="homework1.jsp" method="post">
+<label for="startNum">입력 숫자 1:</label>
+<input type="text" name="startNum"><br/>
+<label for="endNum">입력 숫자 2:</label>
+<input type="text" name="endNum"><br/>
+<input type="submit" value="확인">
+</form>
+</body></html>
+
+---------
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>과제 2</title></head>
+<body>
+<form action="homework2.jsp" method="post">
+<label for="inputNum">입력 숫자 1:</label>
+<input type="text" name="inputNum"><br/>
+<input type="submit" value="확인">
+</form>
+</body></html>
+
+-----------
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<jsp:useBean id="homework1" class="bean.user.homework1">
+<jsp:setProperty name="homework1" property="startNum"/>
+<jsp:setProperty name="homework1" property="endNum"/>
+</jsp:useBean>
+<title>과제 1</title>
+</head>
+<body>
+<h2>과제 1</h2>
+숫자 1: <jsp:getProperty name="homework1" property="startNum"/><br/>
+숫자 2: <jsp:getProperty name="homework1" property="endNum"/><br/><br/>
+난수 1: <jsp:getProperty name="homework1" property="num1"/><br/>
+난수 2: <jsp:getProperty name="homework1" property="num2"/><br/><br/>
+최대값: <jsp:getProperty name="homework1" property="max"/><br/>
+최소값: <jsp:getProperty name="homework1" property="min"/><br/>
+<a href=homework1.html>숫자 입력하기</a>
+</body>
+</html>
+
+--------
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<jsp:useBean id="homework2" class="bean.user.homework2">
+<jsp:setProperty name="homework2" property="inputNum"/>
+</jsp:useBean>
+<title>과제2</title>
+</head>
+<body>
+<h2>과제 2</h2>
+숫자 1: <jsp:getProperty name="homework2" property="inputNum"/><br/>
+합: <jsp:getProperty name="homework2" property="sum"/><br/>
+<a href=homework2.html>숫자 입력하기</a>
+</body>
+</html>
+
+----------
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<jsp:useBean id="homework1" class="bean.user.homework1">
+<jsp:setProperty name="homework1" property="startNum"/>
+<jsp:setProperty name="homework1" property="endNum"/>
+</jsp:useBean>
+<title>과제 1</title>
+</head>
+<body>
+<h2>과제 1</h2>
+숫자 1: <jsp:getProperty name="homework1" property="startNum"/><br/>
+숫자 2: <jsp:getProperty name="homework1" property="endNum"/><br/><br/>
+합: <jsp:getProperty name="homework1" property="num1"/><br/>
+<a href=homework1.html>숫자 입력하기</a>
+</body>
+</html>
+
+-----------
