@@ -205,10 +205,13 @@ pubilc int prime(int max) {
 				else if(i==2) { System.out.println(i); }
 				else {
 					for(int i=2;i<max;i++) { 
-							(max%i==0) { continue; }
-				else { System.out.println(i); }
+							if (max%i==0) { continue; }
+							else { System.out.println(i); }
+								}
+					}
 				}
 		return;
+}
 --------------
 2D 도면상 두 개의 점인 포인트(x1, y1), 포인트(x2, y2)를 입력하고, 입력한 포인트간 거리를 구하기
 거리 d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
