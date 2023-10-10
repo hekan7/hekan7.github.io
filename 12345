@@ -206,10 +206,10 @@ public int getsum() {
 <title>입력 2개 -> 총 합계 출력</title></head>
 <body>
 <form action="homework3.jsp" method="post">
-<label for="input1">입력 숫자 1:</label>
-<input type="text" name="input1"><br/>
-<label for="input2">입력 숫자 2:</label>
-<input type="text" name="input2"><br/>
+<label for="num1">입력 숫자 1:</label>
+<input type="text" name="num1"><br/>
+<label for="num2">입력 숫자 2:</label>
+<input type="text" name="num2"><br/>
 <input type="submit" value="확인">
 </form>
 </body></html>
@@ -222,17 +222,17 @@ public int getsum() {
 <meta charset=utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <jsp:useBean id="homework3" class="bean.user.homework3">
-<jsp:setProperty name="homework3" property="input1"/>
-<jsp:setProperty name="homework3" property="input2"/>
+<jsp:setProperty name="homework3" property="num1"/>
+<jsp:setProperty name="homework3" property="num2"/>
 </jsp:useBean>
 <title>과제 3</title>
 </head>
 <body>
 <h2>과제 3</h2>
-숫자 1: <jsp:getProperty name="homework3" property="input1"/><br/>
-숫자 2: <jsp:getProperty name="homework3" property="input2"/><br/><br/>
+숫자 1: <jsp:getProperty name="homework3" property="num1"/><br/>
+숫자 2: <jsp:getProperty name="homework3" property="num2"/><br/><br/>
 합계: <jsp:getProperty name="homework3" property="sum"/><br/>
-<a href=homework1.html>숫자 입력하기</a>
+<a href=homework3.html>숫자 입력하기</a>
 </body>
 </html>
 
@@ -256,6 +256,47 @@ public static void prime(int num)
         System.out.println(num);
         return;
     }
+
+
+private int num1, num2;
+private int sum, min, max;
+
+public void setNum1(int num1) { this.num1=num1; }
+public int getNum1() { return num1; }
+public void setNum2(int num2) { this.num2=num2; }
+public int getNum2() { return num2; }
+
+public int getmax() {
+	if(num1>num2) {
+		max=num1;
+	} else if (num2>num1) {
+		max=num2;
+	}
+	return max;
+}
+public int getmin() {
+	if(max==num1) {
+		min=num2;
+	} else {
+		min=num1;
+	}
+	return min;
+}
+	
+public int sum() {
+		sum=0;
+		while(min<=max) {
+			sum += min++;
+		}
+		
+		return sum;
+	}
+
+public int getsum() {
+		int i=1, sum=0;
+		while(i<=max) { sum += i++; }
+		return sum;
+	}
 --------------
 2D 도면상 두 개의 점인 포인트(x1, y1), 포인트(x2, y2)를 입력하고, 입력한 포인트간 거리를 구하기
 거리 d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
