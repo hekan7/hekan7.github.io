@@ -177,8 +177,8 @@ public class homework2 {
 -----------
 정수 2개(ex 10, 100) 입력하고, 입력된 작은 정수 값에서부터 정수 큰 값까지 합계 인쇄
 
-private int num1, num2, min, max;
-private int sum;
+private int num1, num2;
+private int sum, min, max;
 
 public int num() {
 		if (num1<num2) { min=num1; max=num2; }
@@ -193,3 +193,6 @@ public int sum() {
 		
 		return sum;
 	}
+--------------
+정수 1개(max) 입력하고, 1부터 입력된 정수 값까지 소수 찾아 인쇄
+자바 continue문 사용
