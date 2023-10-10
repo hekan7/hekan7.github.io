@@ -183,7 +183,7 @@ public int getmin() {
 	return min;
 }
 	
-public int sum() {
+public int getsum() {
 		sum=0;
 		while(min<=max) {
 			sum += min++;
@@ -192,11 +192,6 @@ public int sum() {
 		return sum;
 	}
 
-public int getsum() {
-		int i=1, sum=0;
-		while(i<=max) { sum += i++; }
-		return sum;
-	}
 @
 
 <!DOCTYPE html>
@@ -216,6 +211,8 @@ public int getsum() {
 
 @
 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -242,9 +239,11 @@ public int getsum() {
 
 private int max;
 
-pubilc int Prime_P(int max) {
-			for (int i=0;i<=max;i++) { Prime(i); }
-			}
+public void setMax(int max) { this.max=max; }
+public int getMax() { return max; }
+pubilc int getPrime() {
+		for (int i=0;i<=max;i++) { Prime(i); }
+		}
 
 public static void prime(int num)
     {
@@ -253,50 +252,45 @@ public static void prime(int num)
         for (int i=2;i<num;i++) {
             if (num%i==0) { return; }
         }
-        System.out.println(num);
-        return;
+        return num;
     }
 
+@
 
-private int num1, num2;
-private int sum, min, max;
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>1부터 입력된 값까지 소수 출력</title></head>
+<body>
+<form action="homework4.jsp" method="post">
+<label for="max">입력 숫자 1:</label>
+<input type="text" name="max"><br/>
+<input type="submit" value="확인">
+</form>
+</body></html>
 
-public void setNum1(int num1) { this.num1=num1; }
-public int getNum1() { return num1; }
-public void setNum2(int num2) { this.num2=num2; }
-public int getNum2() { return num2; }
+@
 
-public int getmax() {
-	if(num1>num2) {
-		max=num1;
-	} else if (num2>num1) {
-		max=num2;
-	}
-	return max;
-}
-public int getmin() {
-	if(max==num1) {
-		min=num2;
-	} else {
-		min=num1;
-	}
-	return min;
-}
-	
-public int sum() {
-		sum=0;
-		while(min<=max) {
-			sum += min++;
-		}
-		
-		return sum;
-	}
-
-public int getsum() {
-		int i=1, sum=0;
-		while(i<=max) { sum += i++; }
-		return sum;
-	}
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<jsp:useBean id="homework4" class="bean.user.homework4">
+<jsp:setProperty name="homework4" property="max"/>
+</jsp:useBean>
+<title>과제 4</title>
+</head>
+<body>
+<h2>과제 4</h2>
+max: <jsp:getProperty name="homework4" property="max"/><br/>
+소수: <jsp:getProperty name="homework4" property="prime"/><br/>
+<a href=homework4.html>숫자 입력하기</a>
+</body>
+</html>
 --------------
 2D 도면상 두 개의 점인 포인트(x1, y1), 포인트(x2, y2)를 입력하고, 입력한 포인트간 거리를 구하기
 거리 d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
