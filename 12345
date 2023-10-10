@@ -216,11 +216,14 @@ pubilc int prime(int max) {
 2D 도면상 두 개의 점인 포인트(x1, y1), 포인트(x2, y2)를 입력하고, 입력한 포인트간 거리를 구하기
 거리 d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
 
-private int p1, p2;
+private int x1,x2,y1,y2;
 private int d;
 
-public int d(p1, p2) {
-
+public int (int x1, x2, y1, y2) {
+			double d;
+			d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+			return d;
+			}
 --------------
 로또 번호 6개 출력
 번호 중복X, 생성된 번호가 기존 번호 목록에 있는지 확인, 생성된 로또 번호를 ascending sort할 것
