@@ -205,7 +205,7 @@ public int getsum() {
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>입력 2개 -> 총 합계 출력</title></head>
 <body>
-<form action="homework1.jsp" method="post">
+<form action="homework3.jsp" method="post">
 <label for="input1">입력 숫자 1:</label>
 <input type="text" name="input1"><br/>
 <label for="input2">입력 숫자 2:</label>
@@ -213,6 +213,28 @@ public int getsum() {
 <input type="submit" value="확인">
 </form>
 </body></html>
+
+@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<jsp:useBean id="homework3" class="bean.user.homework3">
+<jsp:setProperty name="homework3" property="input1"/>
+<jsp:setProperty name="homework3" property="input2"/>
+</jsp:useBean>
+<title>과제 3</title>
+</head>
+<body>
+<h2>과제 3</h2>
+숫자 1: <jsp:getProperty name="homework3" property="input1"/><br/>
+숫자 2: <jsp:getProperty name="homework3" property="input2"/><br/><br/>
+합계: <jsp:getProperty name="homework3" property="sum"/><br/>
+<a href=homework1.html>숫자 입력하기</a>
+</body>
+</html>
 
 --------------
 정수 1개(max) 입력하고, 1부터 입력된 정수 값까지 소수 찾아 인쇄
