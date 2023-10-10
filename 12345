@@ -159,19 +159,30 @@ public class homework2 {
 정수 2개(ex 10, 100) 입력하고, 입력된 작은 정수 값에서부터 정수 큰 값까지 합계 인쇄
 
 private int num1, num2;
-private int input1, input2;
 private int sum, min, max;
 
-public void setInput1(int input1) { this.input1=input1; }
-public int getInput1() { return input1; }
-public void setInput2(int input2) { this.input2=input2; }
-public int getInput2() { return input2; }
-	
-public int num() {
-		if (num1<num2) { min=num1; max=num2; }
-		else if (num2<num1) { min=num2; max=num1; }
-		else { min=num1; max=num1; }
+public void setNum1(int num1) { this.num1=num1; }
+public int getNum1() { return num1; }
+public void setNum2(int num2) { this.num2=num2; }
+public int getNum2() { return num2; }
 
+public int getmax() {
+	if(num1>num2) {
+		max=num1;
+	} else if (num2>num1) {
+		max=num2;
+	}
+	return max;
+}
+public int getmin() {
+	if(max==num1) {
+		min=num2;
+	} else {
+		min=num1;
+	}
+	return min;
+}
+	
 public int sum() {
 		sum=0;
 		while(min<=max) {
@@ -181,6 +192,11 @@ public int sum() {
 		return sum;
 	}
 
+public int getsum() {
+		int i=1, sum=0;
+		while(i<=max) { sum += i++; }
+		return sum;
+	}
 @
 
 <!DOCTYPE html>
@@ -190,10 +206,10 @@ public int sum() {
 <title>입력 2개 -> 총 합계 출력</title></head>
 <body>
 <form action="homework1.jsp" method="post">
-<label for="startNum">입력 숫자 1:</label>
-<input type="text" name="startNum"><br/>
-<label for="endNum">입력 숫자 2:</label>
-<input type="text" name="endNum"><br/>
+<label for="input1">입력 숫자 1:</label>
+<input type="text" name="input1"><br/>
+<label for="input2">입력 숫자 2:</label>
+<input type="text" name="input2"><br/>
 <input type="submit" value="확인">
 </form>
 </body></html>
