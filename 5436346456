@@ -1,0 +1,113 @@
+package studuserpkg;
+import java.sql.*;
+import java.util.*;
+
+public class StuduserDAO {
+	Connection conn;
+	PreparedStatement ps;
+	ResultSet rs;
+	
+	String url, user, pass;
+	public StuduserDAO() {
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		url="jdbc:postgresql://localhost:5433/mydb";
+		user="studx";
+		pass="gkrtod123A!";
+	}
+	public int insertStuduser(String stud_id, String stud_passwd, String stud_name, String stud_phone,
+			String stud_gender, String stud_email, String [] sHobby) throws SQLException {
+		String sql="insert into studuser (stud_id, stud_passwd, stud_name, stud_phone, stud_gender, stud_email, stud_hobby1, stud_hobby2, stud_hobby3, stud_regdate)values(?,?,?,?,?,?,?,?,?,?);";
+		try {
+			conn=DriverManager.getConnection(url,user,pass);
+			ps=conn.prepareStatement(sql);
+			java.text.SimpleDateFormat formatter=new java.text.SimpleDateFormat("yyyyMMddHHmmss");
+			String stud_regdate=formatter.format(new java.util.Date());
+			ps.setString(1, stud_id); ps.setString(2, stud_passwd); ps.setString(3, stud_name);
+			ps.setString(4, stud_phone); ps.setString(5, stud_gender); ps.setString(6, stud_email);
+			ps.setString(7, sHobby[0]); ps.setString(8,sHobby[1]); ps.setString(9, sHobby[2]);
+			ps.setString(10, stud_regdate);
+			int rec_no=ps.executeUpdate();
+			return rec_no;
+		} finally {
+			if(ps!=null)
+				ps.close();
+			if(conn!=null)
+				conn.close();
+		}
+	}
+}
+
+package studuserpkg;
+
+public class StuduserDTO {
+	String stud_id;
+	public String getStud_id() {
+		return stud_id;
+	}
+	public void setStud_id(String stud_id) {
+		this.stud_id=stud_id;
+	}
+	String stud_passwd;
+	public String getStud_passwd() { return stud_passwd; }
+	public void setStud_passwd (String stud_passwd) { this.stud_passwd=stud_passwd; }
+	String stud_name;
+	public String getStud_name() { return stud_name; }
+	public void setStud_name (String stud_name) { this.stud_name=stud_name; }
+	String stud_email;
+	public String getStud_email() { return stud_email; }
+	public void setStud_email (String stud_email) { this.stud_name=stud_email; }
+	String stud_phone;
+	public String getStud_phone() { return stud_phone; }
+	public void setStud_phone (String stud_phone) { this.stud_name=stud_phone; }
+	String stud_gender;
+	public String getStud_gender() { return stud_gender; }
+	public void setStud_gender (String stud_gender) { this.stud_name=stud_gender; }
+	String stud_hobby1;
+	public String getStud_hobby1() { return stud_hobby1; }
+	public void setStud_hobby1 (String stud_hobby1) { this.stud_name=stud_hobby1; }
+	String stud_hobby2;
+	public String getStud_hobby2() { return stud_hobby2; }
+	public void setStud_hobby2 (String stud_hobby1) { this.stud_name=stud_hobby2; }
+	String stud_hobby3;
+	public String getStud_hobby3() { return stud_hobby3; }
+	public void setStud_hobby3 (String stud_hobby1) { this.stud_name=stud_hobby3; }
+	String stud_regdate;
+	public String getStud_regdate() { return stud_regdate; }
+	public void setStud_regdate (String stud_regdate) { this.stud_name=stud_regdate; }
+}
+
+<!doctype html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style> * {padding:0; margin:0;}
+body {font-family: Verdana, sans-serif; font-size:0.8em}
+header,nav,section,article,aside,footer {border:1px solid gray; margin:5px; padding:8px}
+nav ul{margin:0; padding:0;}
+nav ul li{display:inline; margin:5px}
+a:link {color:blue; text-decoration:none;}
+a:visited {color:purple; text-decoration:none}
+a:hover {text-decoration:underline;}
+a:active{color:red;text-decoration:none;}
+section{height:450px;}
+.id_form{width:50px;}
+.label_form{display:inline-block; width:55px; height:14px; color:red;padding:5px;}
+.button_form{width:60px;margin-left:5px;}
+.fset{padding:15px;}
+#dupBtn{height:25px;}
+ul.level_1>li{list-style:none;display:inline-block;vertical-align:bottom;}
+ul.level_1>li>ul{list-style:none;}
+.level_2 li{padding-top:5px;}
+.level_2 span {display:inline-block;width:70px;}
+level_2 input {width:100px;}
+#loginBtn button {margin-left:5px; height:42px;}
+</style><title>로그인 실습</title></head>
+<body><header><h2>실습을 환영합니다</h2></header>
+<nav><ul>
+<li><a href="./beadLogin.html">로그인</a></li><li><a href="./beadReg.html">회원등록</a></li></ul></nav>
+<section>
+</section>
+<footer><p>&copy;20XX Made By Korea. All rights reserved.</p></footer></body></html>
