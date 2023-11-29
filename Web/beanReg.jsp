@@ -25,6 +25,7 @@ table.ex1{table-layout:auto;}
 </style><title>로그인 실습</title>
   <jsp:useBean id="dto" class="studpkg.StudDTO"/>
   <jsp:setProperty name="dto" property="*"/>
+  <jsp:useBean id="dao" class="studpkg.StudDAO"/>
   </head>
 <body><header><h2>실습을 환영합니다</h2></header>
   <nav><ul>
@@ -48,7 +49,15 @@ if(uHobby!=null) {
                                                                   } else if (uHobby[i].equals("독서")) { sHobby[2}="독서";
   }
 }
-}%>
+}
+int rec_no=dao.insertStuduser(dto.getStud_id(), dto.getStud_passwd(), dto.getStud_name(),
+dto.getStud_phone(), dto.getStud_gender(), dto.getStud_email(), sHobby);
+if(rec_no>0){
+%>
+<script> alert("성공"); location.href="./beanHome.html";</script>
+<% } else { %>
+<script> alert("실패"); location.href="./beanHome.html";</script>
+<% } %>
 <div style="overlow-x:auto; overflow-y:auto;">
   <table class="ex1">
   <tr><th>아이디</th><th>이름</th><th>전화</th><th>이메일</th><th>취미</th></tr>
